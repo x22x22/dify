@@ -146,8 +146,9 @@ class WeaviateWithSimilaritiesVectorStore(WeaviateVectorStore, EnhanceVectorStor
                 DocumentRelationship(k): v for k, v in json.loads(relationships_str).items()
             }
 
+        text = '''text:{text};doc_id:{ref_doc_id}'''.format(text=entry["text"], ref_doc_id = entry["ref_doc_id"])
         return Node(
-            text=entry["text"],
+            text=text,
             doc_id=entry["doc_id"],
             embedding=entry["_additional"]["vector"],
             extra_info=extra_info,

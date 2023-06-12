@@ -12,6 +12,7 @@ from core.prompt.prompts import QUERY_KEYWORD_EXTRACT_TEMPLATE
 from core.tool.llama_index_tool import EnhanceLlamaIndexTool
 from models.dataset import Dataset
 
+from flask import current_app
 
 class DatasetToolBuilder:
     @classmethod
@@ -45,7 +46,7 @@ class DatasetToolBuilder:
                 "response_mode": response_mode,
                 # If top_k is too large,
                 # it will slow down the synthesis process due to multiple iterations of refinement.
-                "similarity_top_k": 2
+                "similarity_top_k": current_app.config['WEAVIATE_SIMILARITY_TOP_K'],
             }
 
         # fulfill description when it is empty

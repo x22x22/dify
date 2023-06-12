@@ -47,12 +47,14 @@ class HitTestingService:
         end = time.perf_counter()
         logging.debug(f"Hit testing retrieve in {end - start:0.4f} seconds")
 
+        if account.is_anonymous: aid = "095095a7-ccc2-448a-9ab6-b19062af97b5" 
+        else: aid = account.id
         dataset_query = DatasetQuery(
             dataset_id=dataset.id,
             content=query,
             source='hit_testing',
             created_by_role='account',
-            created_by=account.id
+            created_by=aid
         )
 
         db.session.add(dataset_query)

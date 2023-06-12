@@ -7,6 +7,6 @@ bp = Blueprint('service_api', __name__, url_prefix='/v1')
 api = ExternalApi(bp)
 
 
-from .app import completion, app, conversation, message
+from .app import completion, app, conversation, message, hit
 
 from .dataset import document

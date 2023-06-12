@@ -58,6 +58,12 @@ def get_env(key):
 def get_bool_env(key):
     return get_env(key).lower() == 'true'
 
+def get_int_env(key, default):
+    if get_env(key).isnumeric:
+        return int(get_env(key))
+    else:
+        return default
+
 
 def get_cors_allow_origins(env, default):
     cors_allow_origins = []
@@ -138,6 +144,7 @@ class Config:
         self.WEAVIATE_ENDPOINT = get_env('WEAVIATE_ENDPOINT')
         self.WEAVIATE_API_KEY = get_env('WEAVIATE_API_KEY')
         self.WEAVIATE_GRPC_ENABLED = get_bool_env('WEAVIATE_GRPC_ENABLED')
+        self.WEAVIATE_SIMILARITY_TOP_K = get_int_env('WEAVIATE_SIMILARITY_TOP_K', 1)
 
         # qdrant settings
         self.QDRANT_URL = get_env('QDRANT_URL')
