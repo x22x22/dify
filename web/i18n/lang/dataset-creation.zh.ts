@@ -22,7 +22,7 @@ const translation = {
       title: '上传文本文件',
       button: '拖拽文件至此，或者',
       browse: '选择文件',
-      tip: '已支持 TXT, HTML, Markdown, PDF',
+      tip: '已支持 TXT, HTML, Markdown, PDF, XLSX',
       validation: {
         typeError: '文件类型不支持',
         size: '文件太大了，不能超过 15MB',
@@ -76,6 +76,8 @@ const translation = {
     fileName: '预处理文档',
     lastStep: '上一步',
     nextStep: '保存并处理',
+    save: '保存并处理',
+    cancel: '取消',
     sideTipTitle: '为什么要分段和预处理？',
     sideTipP1: '在处理文本数据时，分段和清洗是两个重要的预处理步骤。',
     sideTipP2: '分段的目的是将长文本拆分成较小的段落，以便模型更有效地处理和理解。这有助于提高模型生成的结果的质量和相关性。',
@@ -99,9 +101,9 @@ const translation = {
     sideTipTitle: '接下来做什么',
     sideTipContent: '当文档完成索引处理后，数据集即可集成至应用内作为上下文使用，你可以在提示词编排页找到上下文设置。你也可以创建成可独立使用的 ChatGPT 索引插件发布。',
     modelTitle: '确认停止索引过程吗？',
-    modelContent:'如果您需要稍后恢复处理，则从停止处继续。',
-    modelButtonConfirm: "确认停止",
-    modelButtonCancel: '取消'
+    modelContent: '如果您需要稍后恢复处理，则从停止处继续。',
+    modelButtonConfirm: '确认停止',
+    modelButtonCancel: '取消',
   },
 }
 

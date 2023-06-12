@@ -35,8 +35,7 @@ def clean_document_task(document_id: str, dataset_id: str):
         index_node_ids = [segment.index_node_id for segment in segments]
 
         # delete from vector index
-        if dataset.indexing_technique == "high_quality":
-            vector_index.del_nodes(index_node_ids)
+        vector_index.del_nodes(index_node_ids)
 
         # delete from keyword index
         if index_node_ids:
@@ -44,7 +43,7 @@ def clean_document_task(document_id: str, dataset_id: str):
 
         for segment in segments:
             db.session.delete(segment)
-
+        db.session.commit()
         end_at = time.perf_counter()
         logging.info(
             click.style('Cleaned document when document deleted: {} latency: {}'.format(document_id, end_at - start_at), fg='green'))
